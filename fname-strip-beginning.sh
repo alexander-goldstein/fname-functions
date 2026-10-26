@@ -9,6 +9,13 @@
 set -euo pipefail
 
 # --- Args ---
+if [[ "${1:-}" == "--help" || "${1:-}" == "-h" ]]; then
+    echo "Usage: $(basename "$0") <prefix> [directory]"
+    echo "  prefix     The text to strip from the beginning of each filename"
+    echo "  directory  Optional. Defaults to current directory (.)"
+    exit 0
+fi
+
 if [[ $# -lt 1 ]]; then
     echo "Usage: $(basename "$0") <prefix> [directory]"
     echo "  prefix     The text to strip from the beginning of each filename"
